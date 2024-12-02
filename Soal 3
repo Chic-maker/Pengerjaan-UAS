@@ -1,0 +1,37 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter awal
+v0 = 50  # kecepatan awal (m/s)
+g = 9.8  # percepatan gravitasi (m/s^2)
+
+# A: Grafik sampai tinggi maksimum (NPM ganjil)
+tmaks = v0 / g  # waktu untuk mencapai tinggi maksimum
+t1 = np.linspace(0, tmaks, 100)  # waktu dari 0 hingga tinggi maksimum 
+h1 = v0 * t1 - 1/2 * g * t1**2  # tinggi sebagai fungsi waktu
+
+plt.figure(figsize=(10, 5))
+plt.subplot(1, 2, 1)
+plt.plot(t1, h1, label="Gerak sampai tinggi maksimum", color="r", linestyle="-")
+plt.title("Grafik Gerak (Tinggi Maksimum)")
+plt.xlabel("Waktu (s)")
+plt.ylabel("Tinggi (m)")
+plt.grid()
+plt.legend()
+
+# B: Grafik sampai kembali ke posisi semula (NPM genap)
+ttotal = 2 * tmaks  # waktu total hingga kembali ke posisi awal
+t2 = np.linspace(0, ttotal, 200)  # waktu dari 0 hingga ttotal
+h2 = v0 * t2 - 1/2 * g * t2**2  # tinggi sebagai fungsi waktu
+
+plt.subplot(1, 2, 2)
+plt.plot(t2, h2, label="Gerak kembali ke posisi awal", color="r", linestyle="-")
+plt.title("Grafik Gerak (Posisi Semula)")
+plt.xlabel("Waktu (s)")
+plt.ylabel("Tinggi (m)")
+plt.grid()
+plt.legend()
+
+# Tampilkan grafik
+plt.tight_layout()
+plt.show()
