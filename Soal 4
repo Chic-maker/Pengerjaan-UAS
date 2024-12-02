@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sympy import symbols, integrate
+
+# Definisi 
+x = symbols('x')
+F = 2*x**2 + 4*x + 2  # Fungsi gaya
+
+# Menghitung integral untuk usaha
+usaha = integrate(F, (x, 0, 30))
+print(f"Usaha yang dilakukan: {usaha} Joule")
+
+# Membuat grafik gaya terhadap perpindahan
+x = np.linspace(0, 30, 500)
+F = 2*x**2 + 4*x + 2
+
+plt.figure(figsize=(10, 6))
+plt.plot(x, F, label='F(x) = 2x^2 + 4x + 2', color='b', linestyle='-')
+plt.title('Grafik Gaya tak konstan')
+plt.xlabel('Perpindahan (x) dalam meter')
+plt.ylabel('Gaya (F) dalam Newton')
+plt.grid(True)
+plt.legend()
+plt.show()
